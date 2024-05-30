@@ -14,7 +14,8 @@ def index():
 def submit():
     summaries = []
     # Stop words list
-    stop_words_vi = [
+    stop_words_vi = set(
+        [
         "và", "một", "có", "không", "được", "của", "trong", "cho", "cái", "là", 
         "đã", "được", "của", "các", "với", "vào", "để", "này", "khi", "nó", 
         "ở", "ra", "làm", "nên", "được", "để", "qua", "trên", "từ", "là", 
@@ -29,6 +30,7 @@ def submit():
         "và", "có", "của", "và", "này", "này", "của", "có", "được", "đã", 
         "có", "và", "và", "của", "này", "này", "này", "này", "này", "này"
     ]
+    )
 
     if request.method == 'POST':
         files = request.files.getlist('file')
