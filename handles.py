@@ -1,10 +1,9 @@
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
-# from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 from heapq import nlargest
 
-#? nltk.download('stopwords')
+
 
 def handle(text, stop_word_vi):
 
@@ -17,9 +16,6 @@ def handle(text, stop_word_vi):
         words = [word for sentence in sentences for word in word_tokenize(sentence)]
 
         # Loại bỏ stop words
-
-        # ? : stop_words_en = set(stopwords.words('english'))
-
         filtered_words = [word for word in words if word not in stop_word_vi]
 
         # Tính tần suất xuất hiện của các từ

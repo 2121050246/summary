@@ -1,5 +1,11 @@
 from flask import Flask, render_template, request
 from handles import handle
+# from nltk.corpus import stopwords
+
+
+
+#? nltk.download('stopwords')
+
 
 # Khởi tạo ứng dụng Flask
 app = Flask(__name__)
@@ -13,7 +19,7 @@ def index():
 @app.route('/submit', methods=['POST'])
 def submit():
     summaries = []
-    # Stop words list
+    # Stopword
     stop_words_vi = set(
         [
         "và", "một", "có", "không", "được", "của", "trong", "cho", "cái", "là", 
@@ -31,6 +37,8 @@ def submit():
         "có", "và", "và", "của", "này", "này", "này", "này", "này", "này"
     ]
     )
+    stop_words_en = set(stopwords.words('english'))
+
 
     if request.method == 'POST':
         files = request.files.getlist('file')
